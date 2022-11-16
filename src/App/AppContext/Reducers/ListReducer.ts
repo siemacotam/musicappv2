@@ -10,8 +10,8 @@ export type Action = {
   album: Album;
 };
 
-interface ListReducerProps {
-  state: 
-}
+// interface ListReducerProps {
+//   state:
+// }
 
-const listReducer = ()
+// const listReducer = ()

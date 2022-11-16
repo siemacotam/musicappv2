@@ -5,20 +5,17 @@ import {
   useContext,
   useReducer,
   Reducer,
-  Action,
 } from "react";
 import { Album, Language, languages, View, views } from "src/global";
 import { initialAppContextValues } from "./AppContext.const";
 import { AppContextProps, AppContextProviderProps } from "./AppContext.types";
-import { listReducer } from "./Reducers/ListReducer";
 
 export const AppContext = createContext<AppContextProps>(
   initialAppContextValues
 );
 
 export const AppContextProvider = ({ children }: AppContextProviderProps) => {
-  const [list, setList] =
-    useReducer < React.ReducerWithoutAction<any>(listReducer, []);
+  const [list, setList] = useState([]);
   const [language, setLanguage] = useState<Language>("pl");
   const [view, setView] = useState<View>("grid");
 
