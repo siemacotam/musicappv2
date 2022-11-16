@@ -3,6 +3,6 @@ import { AppContextProps } from "./AppContext.types";
 
 export const initialAppContextValues: AppContextProps = {
   list: [],
-  language: languages.pl,
+  language: languages.PL,
   view: views.grid,
 };

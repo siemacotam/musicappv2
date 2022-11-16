@@ -13,6 +13,16 @@ export const mainReducer = (
         ...state,
         list: state.list.filter((album) => album.id !== action.payload.id),
       };
+    case ActionType.CHANGE_LANGUAGE:
+      return {
+        ...state,
+        language: action.payload,
+      };
+    case ActionType.CHANGE_VIEW:
+      return {
+        ...state,
+        view: action.payload,
+      };
     default:
       return state;
   }
