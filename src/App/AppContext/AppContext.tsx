@@ -1,47 +1,17 @@
-import {
-  createContext,
-  useState,
-  useMemo,
-  useContext,
-  useReducer,
-  Reducer,
-} from "react";
-import { Album, Language, languages, View, views } from "src/global";
+import { createContext, useReducer, useMemo } from "react";
 import { initialAppContextValues } from "./AppContext.const";
-import { AppContextProps, AppContextProviderProps } from "./AppContext.types";
+import { AppContextProviderProps, AppContextState } from "./AppContext.types";
+import { mainReducer } from "./Reducers/mainReducer";
 
-export const AppContext = createContext<AppContextProps>(
-  initialAppContextValues
-);
+export const AppContext = createContext<AppContextState>({
+  state: initialAppContextValues,
+  dispatch: () => null,
+});
 
 export const AppContextProvider = ({ children }: AppContextProviderProps) => {
-  const [list, setList] = useState([]);
-  const [language, setLanguage] = useState<Language>("pl");
-  const [view, setView] = useState<View>("grid");
+  const [state, dispatch] = useReducer(mainReducer, initialAppContextValues);
 
-  const value = useMemo(() => {
-    const switchLanguageToPl = () => setLanguage(languages.pl);
-    const switchLanguageToEn = () => setLanguage(languages.en);
-
-    const switchViewToGrid = () => setView(views.grid);
-    const switchViewToColumn = () => setView(views.column);
-
-    return {
-      list,
-      language,
-      view,
-      switchLanguageToPl,
-      switchLanguageToEn,
-      switchViewToGrid,
-      switchViewToColumn,
-    };
-  }, [list, language, view]);
+  const value = useMemo(() => ({ state, dispatch }), [state, dispatch]);
 
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
-};
-
-export const useAppContext = (): AppContextProps => {
-  const context = useContext<AppContextProps>(AppContext);
-
-  return context;
 };
