@@ -9,7 +9,9 @@ interface LanguageButtonProps {
   language: Language;
 }
 
-export const LanguageButton = ({ language }: LanguageButtonProps) => {
+export const LanguageButton = ({
+  language,
+}: LanguageButtonProps): JSX.Element => {
   const { dispatch, state } = useContext<AppContextState>(AppContext);
 
   const activeLanguage = state.language === language;

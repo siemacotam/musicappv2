@@ -1,16 +1,14 @@
-import { Typography } from "@mui/material";
-import { Grid } from "@mui/material";
+import { Typography, Grid } from "@mui/material";
 import { useFormik, FormikProvider } from "formik";
 import { Album } from "src/global";
 import { useTranslation } from "src/hooks/useTranslation";
 import { addAlbumInitialValues } from "./AddAlbum.const";
 import { AddAlbumForm } from "./AddAlbumForm/AddAlbumForm";
 import * as yup from "yup";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AppContextState } from "src/App/AppContext/AppContext.types";
 import { AppContext } from "src/App/AppContext/AppContext";
 import { addAlbum } from "src/App/AppContext/Reducers/mainReducer.helpers";
-import { useState } from "react";
 import { AlertMessage, AlertMessageProps } from "../AlertMessage";
 
 export const AddAlbum = () => {
@@ -19,6 +17,7 @@ export const AddAlbum = () => {
     status: 1,
   });
   const { t } = useTranslation();
+
   const { dispatch, state } = useContext<AppContextState>(AppContext);
   const { message, status } = showMsg;
 
@@ -45,13 +44,13 @@ export const AddAlbum = () => {
         return;
       }
 
-      const isArtisAlreadyUsed = state.list.some(
+      const isArtistAlreadyUsed = state.list.some(
         (album) => album.artist === artist
       );
       const isAlbumAlreadyUsed = state.list.some(
         (album) => album.title === title
       );
-      if (isArtisAlreadyUsed && isAlbumAlreadyUsed) {
+      if (isArtistAlreadyUsed && isAlbumAlreadyUsed) {
         setShowMsg({ message: t.isalreadysaved, status: 1 });
         return;
       }

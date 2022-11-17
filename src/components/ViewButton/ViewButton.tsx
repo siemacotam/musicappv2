@@ -11,23 +11,24 @@ interface ViewButtonProps {
   view: View;
 }
 
+const label = (view: View) => {
+  switch (view) {
+    case views.column:
+      return <TableRowsIcon />;
+    case views.grid:
+      return <GridOnIcon />;
+    default:
+      return null;
+  }
+};
+
 export const ViewButton = ({ view }: ViewButtonProps): JSX.Element => {
   const { dispatch, state } = useContext<AppContextState>(AppContext);
 
   const activeView = state.view === view;
 
   const switchView = () => dispatch(changeView(view));
-
-  const label = () => {
-    switch (view) {
-      case views.column:
-        return <TableRowsIcon />;
-      case views.grid:
-        return <GridOnIcon />;
-      default:
-        return null;
-    }
-  };
+  const getLabel = () => label(view);
 
   return (
     <Button
@@ -35,7 +36,7 @@ export const ViewButton = ({ view }: ViewButtonProps): JSX.Element => {
       onClick={switchView}
       disabled={activeView}
     >
-      {label()}
+      {getLabel()}
     </Button>
   );
 };

@@ -1,5 +1,4 @@
-import { Box } from "@mui/material";
-import { Stack, CssBaseline } from "@mui/material";
+import { Stack, CssBaseline, Box } from "@mui/material";
 import { useState } from "react";
 import { maxContentWidth } from "src/global";
 import { Header, LeftDrawer, Main } from "src/Layout";

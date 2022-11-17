@@ -25,4 +25,5 @@ export const en = {
   language: "Language",
   view: "View",
   sortBy: "Sort by",
+  empty: "There is no albums here. Please add some",
 };

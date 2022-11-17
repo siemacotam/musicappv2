@@ -1,6 +1,5 @@
 import StarIcon from "@mui/icons-material/Star";
-import { Tooltip } from "@mui/material";
-import { IconButton } from "@mui/material";
+import { Tooltip, IconButton } from "@mui/material";
 import StarBorderIcon from "@mui/icons-material/StarBorder";
 import { useTranslation } from "src/hooks/useTranslation";
 import { useContext } from "react";
@@ -16,11 +15,11 @@ interface BestButtonProps {
   id: number;
 }
 
-export const BestButton = ({ isFav, id }: BestButtonProps) => {
+export const BestButton = ({ isFav, id }: BestButtonProps): JSX.Element => {
   const { dispatch } = useContext<AppContextState>(AppContext);
   const { t } = useTranslation();
 
-  const tooltipLabel = isFav ? t.addBest : t.removeBest;
+  const tooltipLabel = isFav ? t.removeBest : t.addBest;
 
   const handleFavButton = () => {
     isFav ? dispatch(removeFromBest(id)) : dispatch(addToBest(id));

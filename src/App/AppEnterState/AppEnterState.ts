@@ -2,9 +2,9 @@ import { useEffect, useContext } from "react";
 import { AppContext } from "src/App/AppContext/AppContext";
 import { AppContextState } from "src/App/AppContext/AppContext.types";
 import { setState } from "src/App/AppContext/Reducers/mainReducer.helpers";
-import { AppAuthProps } from "./AppAuth.types";
+import { AppEnterStateProps } from "./AppEnterState.types";
 
-export const AppAuth = ({ children }: AppAuthProps) => {
+export const AppEnterState = ({ children }: AppEnterStateProps) => {
   const { dispatch } = useContext<AppContextState>(AppContext);
 
   useEffect(() => {

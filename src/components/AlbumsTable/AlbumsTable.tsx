@@ -1,14 +1,14 @@
-import Table from "@mui/material/Table";
-import TableBody from "@mui/material/TableBody";
-import TableCell from "@mui/material/TableCell";
-import TableContainer from "@mui/material/TableContainer";
-import TableHead from "@mui/material/TableHead";
-import TableRow from "@mui/material/TableRow";
-import { useTranslation } from "src/hooks/useTranslation";
-import { useAppState } from "src/hooks/useAppState";
-import { Card } from "@mui/material";
-import { RemoveButton } from "../RemoveButton/RemoveButton";
-import { BestButton } from "../BestButton/BestButton";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  Card,
+} from "@mui/material";
+import { useAppState, useTranslation } from "src/hooks";
+import { RemoveButton, BestButton } from "src/components";
 import { roundData } from "src/global";
 
 export const AlbumsTable = () => {

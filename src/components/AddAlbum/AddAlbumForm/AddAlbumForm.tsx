@@ -1,14 +1,17 @@
-import { Button } from "@mui/material";
-import { Stack } from "@mui/material";
-import { FormControlLabel } from "@mui/material";
-import { Checkbox } from "@mui/material";
-import { TextField } from "@mui/material";
+import {
+  Button,
+  Stack,
+  FormControlLabel,
+  Checkbox,
+  TextField,
+} from "@mui/material";
 import { useFormikContext, Form } from "formik";
 import { Album } from "src/global";
 import { useTranslation } from "src/hooks/useTranslation";
 
 export const AddAlbumForm = () => {
   const { t } = useTranslation();
+
   const {
     values: { id, artist, created, title, isFav },
     handleChange,

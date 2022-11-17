@@ -1,6 +1,4 @@
-import { IconButton } from "@mui/material";
-import { Drawer } from "@mui/material";
-import { Divider } from "@mui/material";
+import { IconButton, Drawer, Divider } from "@mui/material";
 import { drawerWidth } from "src/global";
 import { LeftDrawerProps } from "./LeftDrawer.types";
 import { DrawerHeader } from "./LefrDrawer.styled";

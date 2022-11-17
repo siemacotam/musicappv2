@@ -5,11 +5,6 @@ import { Alert, Grid } from "@mui/material";
 // 2 - success
 // 3 - info
 
-export interface AlertMessageProps {
-  message: string;
-  status: 1 | 2 | 3;
-}
-
 const pickSeverity = (status: number) => {
   switch (status) {
     case 1:
@@ -22,6 +17,11 @@ const pickSeverity = (status: number) => {
       return "error";
   }
 };
+
+export interface AlertMessageProps {
+  message: string;
+  status: 1 | 2 | 3;
+}
 
 export const AlertMessage = ({ message, status }: AlertMessageProps) => (
   <Grid container>

@@ -8,8 +8,7 @@ import {
 } from "@mui/material";
 import { Album, roundData } from "src/global";
 import { Stack } from "@mui/material";
-import { BestButton } from "../BestButton/BestButton";
-import { RemoveButton } from "../RemoveButton/RemoveButton";
+import { BestButton, RemoveButton } from "src/components";
 import { useTranslation } from "src/hooks/useTranslation";
 
 export interface AlbumProps {

@@ -1,6 +1,5 @@
 import DeleteIcon from "@mui/icons-material/Delete";
-import { Tooltip } from "@mui/material";
-import { IconButton } from "@mui/material";
+import { Tooltip, IconButton } from "@mui/material";
 import { useContext } from "react";
 import { AppContext } from "src/App/AppContext/AppContext";
 import { AppContextState } from "src/App/AppContext/AppContext.types";
@@ -11,7 +10,7 @@ export interface RemoveButtonProps {
   id: number;
 }
 
-export const RemoveButton = ({ id }: RemoveButtonProps) => {
+export const RemoveButton = ({ id }: RemoveButtonProps): JSX.Element => {
   const { dispatch } = useContext<AppContextState>(AppContext);
   const { t } = useTranslation();
 

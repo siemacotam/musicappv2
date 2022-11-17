@@ -1,4 +1,4 @@
-import { AppContextProps } from "../AppContext.types";
+import { AppContextProps } from "src/App/AppContext/AppContext.types";
 import {
   sortAlbums,
   updateLocalStorage,

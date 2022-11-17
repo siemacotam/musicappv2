@@ -1,9 +1,8 @@
 import { Grid } from "@mui/material";
-import { AlbumElement } from "src/components";
-import { AlbumsTable } from "src/components/AlbumsTable/AlbumsTable";
+import { AlbumElement, AlbumsTable } from "src/components";
 import { Album, View, views } from "src/global";
 
-export const showContent = (view: View, list: Album[]) => {
+export const showContent = (view: View, list: Album[]): JSX.Element | null => {
   switch (view) {
     case views.grid:
       return (
@@ -15,7 +14,6 @@ export const showContent = (view: View, list: Album[]) => {
           ))}
         </Grid>
       );
-
     case views.column:
       return <AlbumsTable />;
     default:

@@ -1,10 +1,8 @@
-import { Typography, Toolbar } from "@mui/material";
+import { Typography, Toolbar, Stack, Button } from "@mui/material";
 import { AppBar } from "./Header.styled";
 import { HeaderProps } from "./Header.types";
-import { Stack } from "@mui/material";
-import { Button } from "@mui/material";
 import theme from "src/Theme/Theme";
-import { useTranslation } from "src/hooks/useTranslation";
+import { useTranslation } from "src/hooks";
 import { maxContentWidth } from "src/global";
 
 export const Header = ({ open, handleDrawerOpen }: HeaderProps) => {
@@ -12,7 +10,7 @@ export const Header = ({ open, handleDrawerOpen }: HeaderProps) => {
 
   return (
     <AppBar position="fixed" open={open}>
-      <Toolbar sx={{ bgcolor: theme.palette.grey[200] }}>
+      <Toolbar sx={{ bgcolor: theme.palette.grey[300] }}>
         <Stack
           direction="row"
           justifyContent="space-between"

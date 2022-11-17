@@ -25,4 +25,5 @@ export const pl = {
   language: "Język",
   view: "Widok",
   sortBy: "Sortuj wg.",
+  empty: "Brak albumów. Dodaj swoje ulubione :)",
 };

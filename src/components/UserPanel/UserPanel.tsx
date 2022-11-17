@@ -1,4 +1,3 @@
-import { Card } from "@mui/material";
 import { CardContent } from "@mui/material";
 import {
   Typography,
@@ -9,6 +8,7 @@ import {
   MenuItem,
   InputLabel,
   Grid,
+  Card,
 } from "@mui/material";
 import { useContext, useState } from "react";
 import { AppContext } from "src/App/AppContext/AppContext";
@@ -16,10 +16,9 @@ import { AppContextState } from "src/App/AppContext/AppContext.types";
 import { sortAlbumsList } from "src/App/AppContext/Reducers/mainReducer.helpers";
 import { languages, SortOption, sortOptions, views } from "src/global";
 import { useTranslation } from "src/hooks/useTranslation";
-import { LanguageButton } from "../LanguageButton";
-import { ViewButton } from "../ViewButton";
+import { LanguageButton, ViewButton } from "src/components";
 
-export const UserPanel = () => {
+export const UserPanel = (): JSX.Element => {
   const [sortBy, setSortBy] = useState<SortOption>(sortOptions.idDown);
   const { dispatch } = useContext<AppContextState>(AppContext);
   const { t } = useTranslation();
@@ -42,15 +41,15 @@ export const UserPanel = () => {
     <Grid item xs={12}>
       <Card variant="outlined">
         <CardContent>
-          <Grid container alignItems="center">
+          <Grid container alignItems="center" rowGap={2}>
             <Grid item xs={12} md={8}>
               <Stack spacing={2}>
                 <Typography>{t.sortBy}</Typography>
-                <FormControl sx={{ width: "250px" }}>
-                  <InputLabel>Sortuj wg</InputLabel>
+                <FormControl sx={{ width: { xs: "100%", md: "250px" } }}>
+                  <InputLabel>{t.sortBy}</InputLabel>
                   <Select
                     value={sortBy}
-                    label="Sortuj wg"
+                    label={t.sortBy}
                     onChange={handleChange}
                   >
                     {sortOptionsElements.map(({ label, code }) => (
@@ -62,7 +61,7 @@ export const UserPanel = () => {
                 </FormControl>
               </Stack>
             </Grid>
-            <Grid item xs={12} md={4} container spacing={1}>
+            <Grid item xs={12} md={4} container spacing={2}>
               <Grid item xs={6} textAlign="center">
                 <Card variant="outlined" sx={{ p: 1 }}>
                   <Typography mb={2}>{t.view}</Typography>

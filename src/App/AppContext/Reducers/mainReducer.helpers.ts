@@ -1,5 +1,5 @@
 import { Album, Language, SortOption, sortOptions, View } from "src/global";
-import { AppContextProps } from "../AppContext.types";
+import { AppContextProps } from "src/App/AppContext/AppContext.types";
 import {
   Actions,
   ActionType,

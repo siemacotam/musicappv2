@@ -4,8 +4,7 @@ import App from "src/App/App";
 import { AppContextProvider } from "./App/AppContext/AppContext";
 import { ThemeProvider } from "@mui/styles";
 import theme from "./Theme/Theme";
-import { BrowserRouter } from "react-router-dom";
-import { AppAuth } from "./App/AppAuth/AppAuth";
+import { AppEnterState } from "./App/AppEnterState/AppEnterState";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -14,11 +13,9 @@ root.render(
   <React.StrictMode>
     <AppContextProvider>
       <ThemeProvider theme={theme}>
-        <BrowserRouter basename={process.env.PUBLIC_URL}>
-          <AppAuth>
-            <App />
-          </AppAuth>
-        </BrowserRouter>
+        <AppEnterState>
+          <App />
+        </AppEnterState>
       </ThemeProvider>
     </AppContextProvider>
   </React.StrictMode>

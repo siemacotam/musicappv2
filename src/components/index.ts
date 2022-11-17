@@ -7,3 +7,4 @@ export * from "./AlertMessage";
 export * from "./BestButton";
 export * from "./RemoveButton";
 export * from "./UserPanel";
+export * from "./EmptyStateComponent";
