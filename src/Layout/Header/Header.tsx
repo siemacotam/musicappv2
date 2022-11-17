@@ -10,7 +10,7 @@ export const Header = ({ open, handleDrawerOpen }: HeaderProps) => {
 
   return (
     <AppBar position="fixed" open={open}>
-      <Toolbar sx={{ bgcolor: theme.palette.grey[300] }}>
+      <Toolbar sx={{ bgcolor: theme.palette.grey[600] }}>
         <Stack
           direction="row"
           justifyContent="space-between"
@@ -21,11 +21,16 @@ export const Header = ({ open, handleDrawerOpen }: HeaderProps) => {
           <Button
             variant="outlined"
             onClick={handleDrawerOpen}
-            sx={{ mr: 2, ...(open && { display: "none" }) }}
+            sx={{
+              mr: 2,
+              ...(open && { display: "none" }),
+              color: "#ffffff",
+              borderColor: "#000000",
+            }}
           >
             {t.add}
           </Button>
-          <Typography variant="h6" component="h1" color="black">
+          <Typography variant="h4" component="h1" color="#ffffff">
             Music App
           </Typography>
         </Stack>
