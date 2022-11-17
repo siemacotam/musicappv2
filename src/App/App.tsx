@@ -1,5 +1,7 @@
+import { Box } from "@mui/material";
 import { Stack, CssBaseline } from "@mui/material";
 import { useState } from "react";
+import { maxContentWidth } from "src/global";
 import { Header, LeftDrawer, Main } from "src/Layout";
 
 function App() {
@@ -18,7 +20,9 @@ function App() {
       <CssBaseline />
       <Header open={open} handleDrawerOpen={handleDrawerOpen} />
       <LeftDrawer open={open} handleDrawerClose={handleDrawerClose} />
-      <Main open={open} />
+      <Box maxWidth={maxContentWidth} width="100%" mx="auto">
+        <Main open={open} />
+      </Box>
     </Stack>
   );
 }

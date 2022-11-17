@@ -3,7 +3,9 @@ import { useContext } from "react";
 import { AppContext } from "src/App/AppContext/AppContext";
 import { AppContextState } from "src/App/AppContext/AppContext.types";
 import { changeView } from "src/App/AppContext/Reducers/mainReducer.helpers";
-import { View } from "src/global";
+import { View, views } from "src/global";
+import GridOnIcon from "@mui/icons-material/GridOn";
+import TableRowsIcon from "@mui/icons-material/TableRows";
 
 interface ViewButtonProps {
   view: View;
@@ -16,14 +18,24 @@ export const ViewButton = ({ view }: ViewButtonProps): JSX.Element => {
 
   const switchView = () => dispatch(changeView(view));
 
+  const label = () => {
+    switch (view) {
+      case views.column:
+        return <TableRowsIcon />;
+      case views.grid:
+        return <GridOnIcon />;
+      default:
+        return null;
+    }
+  };
+
   return (
     <Button
-      variant="outlined"
+      variant={activeView ? "contained" : "outlined"}
       onClick={switchView}
       disabled={activeView}
-      sx={{ color: activeView ? "green" : "black" }}
     >
-      {view}
+      {label()}
     </Button>
   );
 };

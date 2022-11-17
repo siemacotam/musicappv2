@@ -1,6 +1,8 @@
 export interface Album {
-  id: string;
+  id: number;
   artist: string;
   title: string;
+  added: number;
+  created: number;
   isFav: boolean;
 }

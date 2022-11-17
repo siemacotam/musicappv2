@@ -1,16 +1,35 @@
-import { Album, Language, View } from "src/global";
+import { Album, Language, SortOption, View } from "src/global";
+import { AppContextProps } from "../AppContext.types";
 
 export enum ActionType {
   ADD,
   REMOVE,
-  SET_LIST,
-  ADD_FAV,
-  REMOVE_FAV,
+  SET_STATE,
+  ADD_BEST,
+  REMOVE_BEST,
   CHANGE_VIEW,
   CHANGE_LANGUAGE,
-  SORT_ID,
-  SORT_DATE,
-  SORT_NAME,
+  SORT,
+}
+
+export interface Sort {
+  type: ActionType.SORT;
+  payload: SortOption;
+}
+
+export interface SetState {
+  type: ActionType.SET_STATE;
+  payload: AppContextProps;
+}
+
+export interface AddToBest {
+  type: ActionType.ADD_BEST;
+  payload: number;
+}
+
+export interface RemoveFromBest {
+  type: ActionType.REMOVE_BEST;
+  payload: number;
 }
 
 export interface AddAlbum {
@@ -20,7 +39,7 @@ export interface AddAlbum {
 
 export interface RemoveAlbum {
   type: ActionType.REMOVE;
-  payload: { id: string };
+  payload: number;
 }
 
 export interface ChangeLanguage {
@@ -33,4 +52,12 @@ export interface ChangeView {
   payload: View;
 }
 
-export type Actions = AddAlbum | RemoveAlbum | ChangeLanguage | ChangeView;
+export type Actions =
+  | AddAlbum
+  | RemoveAlbum
+  | ChangeLanguage
+  | ChangeView
+  | AddToBest
+  | RemoveFromBest
+  | SetState
+  | Sort;

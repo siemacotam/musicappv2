@@ -18,10 +18,9 @@ export const LanguageButton = ({ language }: LanguageButtonProps) => {
 
   return (
     <Button
-      variant="outlined"
+      variant={activeLanguage ? "contained" : "outlined"}
       onClick={switchLanguage}
       disabled={activeLanguage}
-      sx={{ color: activeLanguage ? "green" : "black" }}
     >
       {language}
     </Button>
