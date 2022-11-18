@@ -6,7 +6,7 @@ export const EmptyStateComponent = (): JSX.Element => {
   const { t } = useTranslation();
 
   return (
-    <Stack direction="row" spacing={2}>
+    <Stack direction="row" spacing={2} alignItems="center">
       <InfoOutlinedIcon />
       <Typography component="span" variant="h6">
         {t.empty}

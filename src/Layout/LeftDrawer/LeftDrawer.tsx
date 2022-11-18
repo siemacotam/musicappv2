@@ -25,6 +25,6 @@ export const LeftDrawer = ({ open, handleDrawerClose }: LeftDrawerProps) => (
       </IconButton>
     </DrawerHeader>
     <Divider />
-    <AddAlbum />
+    <AddAlbum open={open} />
   </Drawer>
 );

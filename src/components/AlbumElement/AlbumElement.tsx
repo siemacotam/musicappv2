@@ -10,6 +10,7 @@ import { Album, roundData } from "src/global";
 import { Stack } from "@mui/material";
 import { BestButton, RemoveButton } from "src/components";
 import { useTranslation } from "src/hooks/useTranslation";
+import theme from "src/Theme/Theme";
 
 export interface AlbumProps {
   album: Album;
@@ -20,7 +21,10 @@ export const AlbumElement = ({ album }: AlbumProps) => {
   const { t } = useTranslation();
 
   return (
-    <Card variant="outlined">
+    <Card
+      variant="outlined"
+      sx={{ bgcolor: isFav ? theme.palette.grey[100] : "#ffffff" }}
+    >
       <CardActionArea>
         <CardMedia
           component="img"

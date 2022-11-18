@@ -5,13 +5,17 @@ import { useTranslation } from "src/hooks/useTranslation";
 import { addAlbumInitialValues } from "./AddAlbum.const";
 import { AddAlbumForm } from "./AddAlbumForm/AddAlbumForm";
 import * as yup from "yup";
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import { AppContextState } from "src/App/AppContext/AppContext.types";
 import { AppContext } from "src/App/AppContext/AppContext";
 import { addAlbum } from "src/App/AppContext/Reducers/mainReducer.helpers";
 import { AlertMessage, AlertMessageProps } from "../AlertMessage";
 
-export const AddAlbum = () => {
+interface AddAlbumProps {
+  open: boolean;
+}
+
+export const AddAlbum = ({ open }: AddAlbumProps) => {
   const [showMsg, setShowMsg] = useState<AlertMessageProps>({
     message: "",
     status: 1,
@@ -20,6 +24,12 @@ export const AddAlbum = () => {
 
   const { dispatch, state } = useContext<AppContextState>(AppContext);
   const { message, status } = showMsg;
+
+  useEffect(() => {
+    if (!open) {
+      setShowMsg({ message: "", status: 1 });
+    }
+  }, [open]);
 
   const validationSchema = yup.object({
     id: yup.string().required(t.required),
